@@ -1,9 +1,9 @@
 #This i an web app directory scanner
 
 import requests 
-import sys    #important!
+import sys #important!
 
-sub_list = open("wordlist.txt").read()  #wordlist in the same directory 
+sub_list = open("wordlist.txt").read() #wordlist in the same directory 
 directories = sub_list.splitlines()
 
 for dir in directories:
