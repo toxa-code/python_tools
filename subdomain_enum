@@ -1,21 +1,23 @@
 #Subdomain Enumeration with Python
 #on Linux use "pyinstaller" , convert an Windows exe with "py2exe"
 
-import requests 
-import sys 
+import os,requests,sys
 
-sub_list = open("subdomains.txt").read()    #the subdomains.txt is a wordlist that need to be in the same directory#
+'''file = f"{sys.argv[1]}"      #use it if you have a path
+path=os.getcwd() + file
+'''
+
+sub_list = open("subdomains.txt").read()    #repleace it with filename in sa directory
+
 subdoms = sub_list.splitlines()
 
 for sub in subdoms:
-    sub_domains = f"http://{sub}.{sys.argv[1]}"     #if use path, [2]
-
-    try:
+    sub_domains = f"http://{sub}.{sys.argv[2]}"
+try:
         requests.get(sub_domains)
     
     except requests.ConnectionError: 
         pass
     
     else:
-        print("Valid domain: ",sub_domains)   
-        
+        print("Valid domain: ",sub_domains)
